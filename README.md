@@ -52,8 +52,8 @@ please see [this section of the Crystal documentation](https://crystal-lang.org/
 ## Usage
 
 This program gets an array of information about the instance methods
-of `Object`. It selects the information for the "pretty_inspect" method,
-and then renders the information using the pretty_inspect method.
+of `Object`. It selects the information for `Object#pretty_inspect`,
+and then renders that information using `Object#pretty_inspect`.
 ```crystal
 require "introspection"
 
