@@ -30,6 +30,7 @@ please see [this section of the Crystal documentation](https://crystal-lang.org/
     body : String # The text of the method body.
   },
 ]
+```
 
 ## Usage
 
