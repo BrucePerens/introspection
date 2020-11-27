@@ -1,0 +1,9 @@
+name: introspection
+version: 0.1.0
+
+authors:
+  - Bruce Perens <bruce@perens.com>
+
+crystal: 0.35.1
+
+license: MIT

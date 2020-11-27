@@ -1,0 +1,1 @@
+require "./instance_methods"
