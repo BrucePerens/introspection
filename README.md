@@ -51,15 +51,34 @@ please see [this section of the Crystal documentation](https://crystal-lang.org/
 
 ## Usage
 
-This program:
+This program gets an array of information about the instance methods
+of `Object`. It selects the information for the "pretty_inspect" method,
+and then renders the information using the pretty_inspect method.
 ```crystal
 require "introspection"
 
-p Object.instance_methods.find { |method| method[:name] == "pretty_inspect" }
+p Object.instance_methods.find { |method| method[:name] == "pretty_inspect" }.pretty_inspect
 ```
-...should print something like:
+It should print something like:
 ```
-{visibility: ":public", name: "pretty_inspect", double_splat: "", splat_index: 0, return_type: "String", arguments: [{name: "width", internal_name: "width", type: "", default_value: "79"}, {name: "newline", internal_name: "newline", type: "", default_value: "\"\\n\""}, {name: "indent", internal_name: "indent", type: "", default_value: "0"}], block_argument: [], block_return: "", body: "String.build do |io|\n  PrettyPrint.format(self, io, width, newline, indent)\nend"}
+{visibility: ":public",
+ name: "pretty_inspect",
+ double_splat: "",
+ splat_index: 0,
+ return_type: "String",
+ arguments: 
+  [{name: "width", internal_name: "width", type: "", default_value: "79"},
+   {name: "newline",
+    internal_name: "newline",
+    type: "",
+    default_value: "\"\\n\""},
+   {name: "indent", internal_name: "indent", type: "", default_value: "0"}],
+ block_argument: [],
+ block_return: "",
+ body: 
+  "String.build do |io|\n" +
+  "  PrettyPrint.format(self, io, width, newline, indent)\n" +
+  "end"}
 ```
 
 TODO: Write usage instructions here
