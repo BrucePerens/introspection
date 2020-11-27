@@ -45,7 +45,7 @@ and then renders that information using `Object#pretty_inspect`.
 ```crystal
 require "introspection"
 
-putps Object.instance_methods.find { |method| method[:name] == "pretty_inspect" }.pretty_inspect
+puts Object.instance_methods.find { |method| method[:name] == "pretty_inspect" }.pretty_inspect
 ```
 It should print something like:
 ```
