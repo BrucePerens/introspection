@@ -7,7 +7,8 @@ of macros. This shard contains easy methods for getting the type information
 without macros.
 
 If you want to use type introspection information to *modify
-the code of your Crystal program,* you'll still have to do it the macro way.
+the code of your Crystal program,* you'll still have to do it the macro way,
+not using this shard.
 
 Currently this shard only provides an `Object#instance_methods` method.
 This works on instances, classes, and modules. It returns the data
