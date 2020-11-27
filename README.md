@@ -1,9 +1,10 @@
-# introspection
+# Introspection
 
 Introspection for the Crystal language, without macros.
 
-Currently there is an `Object#instance_methods` method. This works on
-instances, classes, and modules. It returns the data structure below.
+Currently this shard only provides an `Object#instance_methods` method.
+This works on instances, classes, and modules. It returns the data
+structure below.
 
 For a discussion of *internal* and *external* argument names,
 please see [this section of the Crystal documentation](https://crystal-lang.org/reference/syntax_and_semantics/default_values_named_arguments_splats_tuples_and_overloading.html#external-names).
@@ -50,8 +51,15 @@ please see [this section of the Crystal documentation](https://crystal-lang.org/
 
 ## Usage
 
+This program:
 ```crystal
 require "introspection"
+
+p Object.instance_methods.find { |method| method[:name] == "pretty_inspect" }
+```
+...should print something like:
+```
+{visibility: ":public", name: "pretty_inspect", double_splat: "", splat_index: 0, return_type: "String", arguments: [{name: "width", internal_name: "width", type: "", default_value: "79"}, {name: "newline", internal_name: "newline", type: "", default_value: "\"\\n\""}, {name: "indent", internal_name: "indent", type: "", default_value: "0"}], block_argument: [], block_return: "", body: "String.build do |io|\n  PrettyPrint.format(self, io, width, newline, indent)\nend"}
 ```
 
 TODO: Write usage instructions here
