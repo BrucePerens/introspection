@@ -39,22 +39,6 @@ please see [this section of the Crystal documentation](https://crystal-lang.org/
 
 ## Usage
 
-`require "introspection"`
-
-## Installation
-
-1. Add the dependency to your `shard.yml`:
-
-   ```yaml
-   dependencies:
-     introspection:
-       github: BrucePerens/introspection
-   ```
-
-2. Run `shards install`
-
-## Usage
-
 This program gets an array of information about the instance methods
 of `Object`. It selects the information for `Object#pretty_inspect`,
 and then renders that information using `Object#pretty_inspect`.
@@ -108,6 +92,17 @@ myVariable : {{type.id}}
 {% end %}
 ```
 
+## Installation
+
+1. Add the dependency to your `shard.yml`:
+
+   ```yaml
+   dependencies:
+     introspection:
+       github: BrucePerens/introspection
+   ```
+
+2. Run `shards install`
   
 TODO: Write usage instructions here
 
