@@ -14,7 +14,7 @@ instances, classes, and modules. It returns this data structure:
     return_type : String # The return type of the method.
     arguments : [ # Array of arguments to the method.
       {
-        # See for a discussion of internal and external argument names,
+        # For a discussion of internal and external argument names,
         # please see:
         # https://crystal-lang.org/reference/syntax_and_semantics/default_values_named_arguments_splats_tuples_and_overloading.html#external-names>
         name : String # The argument's external name.
