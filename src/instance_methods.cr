@@ -1,6 +1,6 @@
 class Object
   # Return the instance methods of an Object.
-  def self.instance_methods
+  macro instance_methods2
     {% begin %}
     [
       {% for m in @type.methods %}
@@ -37,10 +37,8 @@ class Object
     ] of NamedTuple(visibility: String, name: String, double_splat: String, splat_index: Int32, return_type: String, arguments: Array(NamedTuple(name: String, internal_name: String, type: String, default_value: String)), block_argument: Array(String), block_return: String, body: String)
     {% end %}
   end
-end
 
-class A
-  def foo(a : Int)
+  def self.instance_methods
+    instance_methods2
   end
-  p self.instance_methods
 end

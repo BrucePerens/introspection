@@ -1,3 +1,4 @@
 require "./introspection"
 
-puts  Object.instance_methods.find { |method| method[:name] == "pretty_inspect" }.pretty_inspect
+m = Object.instance_methods.find { |method| method[:name] == "pretty_inspect" }
+puts m.pretty_inspect
