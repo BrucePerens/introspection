@@ -69,29 +69,6 @@ It should print something like:
   "end"}
 ```
 
-### Using the returned data to create Crystal programs
-
-Most of the data is returned as strings. You can convert strings
-to Crystal language program statements using macros. This simple
-program declares the type of a variable using information from a string:
-```crystal
-type : String = "Int32"
-
-myVariable : {{type.id}}
-```
-
-Macros must produce complete statements in the Crystal language to compile. If
-you have difficulty getting a macro expansion of a string to compile, try
-surrounding a complete statement with `{% begin %}`
-and `{% end %}`.
-```crystal
-type : String = "Int32"
-
-{% begin %}
-myVariable : {{type.id}}
-{% end %}
-```
-
 ## Installation
 
 1. Add the dependency to your `shard.yml`:
