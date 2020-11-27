@@ -3,7 +3,10 @@
 Introspection for the Crystal language, without macros.
 
 Currently there is an `Object#instance_methods` method. This works on
-instances, classes, and modules. It returns this data structure:
+instances, classes, and modules. It returns the data structure below.
+
+For a discussion of *internal* and *external* argument names,
+please see [this section of the Crystal documentation](https://crystal-lang.org/reference/syntax_and_semantics/default_values_named_arguments_splats_tuples_and_overloading.html#external-names).
 ```crystal
 [   # This is an array of named tuples defining methods.
   {
@@ -14,9 +17,6 @@ instances, classes, and modules. It returns this data structure:
     return_type : String # The return type of the method.
     arguments : [ # Array of arguments to the method.
       {
-        # For a discussion of internal and external argument names,
-        # please see:
-        # https://crystal-lang.org/reference/syntax_and_semantics/default_values_named_arguments_splats_tuples_and_overloading.html#external-names>
         name : String # The argument's external name.
         internal_name : String # The argument's internal name.
         type : String # The type restriction of the argument.
