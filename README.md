@@ -1,6 +1,10 @@
 # Introspection
 
-Introspection for the Crystal language, without macros.
+Easy introspection for the Crystal language.
+
+The Crystal language provides introspection (type reflection) through the use
+of macros. This shard contains easy methods for getting the type information
+without macros.
 
 Currently this shard only provides an `Object#instance_methods` method.
 This works on instances, classes, and modules. It returns the data
@@ -57,7 +61,7 @@ and then renders that information using `Object#pretty_inspect`.
 ```crystal
 require "introspection"
 
-p Object.instance_methods.find { |method| method[:name] == "pretty_inspect" }.pretty_inspect
+putps Object.instance_methods.find { |method| method[:name] == "pretty_inspect" }.pretty_inspect
 ```
 It should print something like:
 ```
@@ -81,6 +85,30 @@ It should print something like:
   "end"}
 ```
 
+### Using the returned data to create Crystal programs
+
+Most of the data is returned as strings. You can convert strings
+to Crystal language program statements using macros. This simple
+program declares the type of a variable using information from a string:
+```crystal
+type : String = "Int32"
+
+myVariable : {{type.id}}
+```
+
+Macros must produce complete statements in the Crystal language to compile. If
+you have difficulty getting a macro expansion of a string to compile, try
+surrounding a complete statement with `{% begin %}`
+and `{% end %}`.
+```crystal
+type : String = "Int32"
+
+{% begin %}
+myVariable : {{type.id}}
+{% end %}
+```
+
+  
 TODO: Write usage instructions here
 
 ## Development
